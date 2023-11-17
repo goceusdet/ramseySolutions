@@ -22,7 +22,7 @@ public class CartPage extends BasePage {
      * @return
      */
     public WebElement getItemInCart(String itemName) {
-        BrowserUtils.waitForPageToLoad(5);
+        //BrowserUtils.waitForPageToLoad(5);
         return Driver.getDriver().findElement(By.xpath("//td[@class='rs-CartItem-detail rs-CartItem-title']//h2[contains(normalize-space(), '" + itemName + "')]"));
     }
 
@@ -31,7 +31,7 @@ public class CartPage extends BasePage {
      * @param itemName
      * @return
      */
-    public int quantityOfItemInCart(String itemName) {
+    public int getQuantityOfItemInCart(String itemName) {
         WebElement item = Driver.getDriver().findElement(By.xpath("//td[@class='rs-CartItem-detail rs-CartItem-title']//h2[contains(normalize-space(), '" + itemName + "')]/../..//following-sibling::td//input"));
         return Integer.parseInt(item.getAttribute("value"));
     }

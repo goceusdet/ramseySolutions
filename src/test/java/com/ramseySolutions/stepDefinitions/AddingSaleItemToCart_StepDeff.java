@@ -71,7 +71,7 @@ public class AddingSaleItemToCart_StepDeff {
 
     @And("quantity value for {string} should be {int}")
     public void quantity_should_be(String itemName, Integer expectedValue) {
-        int actualQuantity = cartPage.quantityOfItemInCart(itemName);
+        int actualQuantity = cartPage.getQuantityOfItemInCart(itemName);
         Assertions.assertEquals(expectedValue, actualQuantity);
     }
 
@@ -92,7 +92,7 @@ public class AddingSaleItemToCart_StepDeff {
 
     @Then("item {string} shouldn't be present in cart")
     public void item_shouldn_t_be_present_in_cart(String itemName) {
-        System.out.println("cartPage.getItemFromList(itemName) = " + cartPage.getItemFromList(itemName));
+        System.out.println("Element presence in cart status = " + cartPage.getItemFromList(itemName));
         System.out.println("itemName = " + itemName);
         Assertions.assertNotEquals(cartPage.getItemFromList(itemName), itemName);
     }

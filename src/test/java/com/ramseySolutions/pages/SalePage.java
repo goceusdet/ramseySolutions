@@ -31,7 +31,6 @@ public class SalePage extends BasePage {
      * @return
      */
     public WebElement getSaleItem(String itemName) {
-
         for (String eachSaleItemName : getSaleItemsNamesList()) {
             if (!eachSaleItemName.equals(itemName)) {
                 BrowserUtils.hover(nextButton);
