@@ -37,7 +37,7 @@ public class CartPage extends BasePage {
     }
 
     /**
-     * Methos takes item name as parameter and deletes specified item from cart.
+     * Methos takes item name as parameter and deletes specified item from cart. Waits until element is invisible.
      * @param itemName
      */
     public void deleteItemFromCart(String itemName, int quantityToBeDeleted){

@@ -35,7 +35,7 @@ public class AddingSaleItemToCart_StepDeff {
     public void user_is_on_the_page(String page) {
         expectedPageTitle = homePage.getPageTitleFromSheet(page);
         actualPageTitle = Driver.getDriver().getTitle();
-        Assertions.assertTrue(actualPageTitle.contains(expectedPageTitle));
+        Assertions.assertEquals(actualPageTitle, expectedPageTitle);
     }
 
     @When("user navigates to {string} page")
