@@ -19,9 +19,8 @@ public class Hooks {
      */
     @Before("@ui")
     public void setupMethod(){
-        System.out.println("this is coming from BEFORE");
+        System.out.println("UI test is running:");
         Driver.getDriver().get(Environment.URL);
-        //Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         Driver.getDriver().manage().window().maximize();
     }
 

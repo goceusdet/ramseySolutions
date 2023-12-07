@@ -1,4 +1,4 @@
-@US_02 @ui @regression
+@ui @regression @US_02
 Feature: As a user I am able to add a sale item to my cart - UI
 
 
@@ -7,7 +7,7 @@ Feature: As a user I am able to add a sale item to my cart - UI
     When user navigates to "sale" page
 
 
-  @TC_04 @ui
+  @TC_04
   Scenario: Verify user can get to the Sale item list
     #Given user is on the "home" page
     #When user navigates to "sale" page
@@ -34,7 +34,7 @@ Feature: As a user I am able to add a sale item to my cart - UI
       | Questions for Humans: Parents and Kids                     |
 
 
-  @TC_05 @ui
+  @TC_05
   Scenario Outline: Verify user is able to add a Sale Item to cart
     #Given user is on the "home" page
     #When user navigates to "sale" page
@@ -52,7 +52,7 @@ Feature: As a user I am able to add a sale item to my cart - UI
       | From Paycheck to Purpose             |
 
 
-  @TC_06 @ui
+  @TC_06
   Scenario Outline: Verify user can delete a Sale item from cart
     #Given user is on the "home" page
     #When user navigates to "sale" page

@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features", // connects TestRunner with feature files.
         glue = "com/ramseySolutions/stepDefinitions",// connects TestRunner with step definitions.
         dryRun = false,
-        tags = "@US_02 and @ui",
+        tags = "@regression",
         publish = true // generating a report with public link
 )
 public class TestRunner {

@@ -1,11 +1,11 @@
-@US_03 @api @ui @regression
+@ui @api @regression @US_03
 Feature: As a user I am able to add a sale item to my cart - UI / API validation
 
   Background: user navigates to Sale page
     Given user is on the "home" page
     When user navigates to "Sale" page
 
-  @TC_07 @ui @api
+  @TC_07
   Scenario: Verify user can get to the Sale item list - UI / API
     #Given user is on the home page
     #When user navigates to "Sale" page
@@ -32,7 +32,7 @@ Feature: As a user I am able to add a sale item to my cart - UI / API validation
       | Questions for Humans: Parents and Kids                     |
 
 
-  @TC_08 @ui @api
+  @TC_08
   Scenario Outline: Verify user is able to add a Sale Item to cart - UI /API
     #Given user is on the home page
     #When user navigates to "Sale" page
@@ -50,7 +50,7 @@ Feature: As a user I am able to add a sale item to my cart - UI / API validation
       | Baby Steps Millionaires              |
       | From Paycheck to Purpose             |
 
-  @TC_09 @ui @api
+  @TC_09
   Scenario Outline: Verify user can delete a Sale item from cart UI / API
     #Given user is on the home page
     #When user navigates to "Sale" page

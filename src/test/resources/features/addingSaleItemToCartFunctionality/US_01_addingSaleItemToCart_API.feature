@@ -1,8 +1,8 @@
-@US_01 @api @ui @regression
+@api @regression @US_01
 Feature: As a user I am able to add a sale item to my cart - API
 
 
-  @TC_01 @api
+  @TC_01
   Scenario: Verify I'm able to get the Sale item list as user - API
     Given I specify a request to retrieve all Sale items
     And I specify a response to retrieve all Sale items
@@ -13,7 +13,7 @@ Feature: As a user I am able to add a sale item to my cart - API
     And number of Sale items is 20
 
 
-  @TC_02 @api
+  @TC_02
   Scenario Outline: Verify I am able to add a Sale Item to my cart as user - API
     Given I send POST request to endpoint "/add" for "<itemName>" item and "<product_id>" id
     Then field "message" is "There is item in your cart."
@@ -27,7 +27,7 @@ Feature: As a user I am able to add a sale item to my cart - API
       | Questions for Humans: Middle School Classroom | 806        |
 
 
-  @TC_03 @api
+  @TC_03
   Scenario Outline: Verify I am able to delete Sale item from my cart as user - API
     Given I send POST request to endpoint "/add" for "<itemName>" item and "<product_id>" id
     When I delete the item "<product_id>" from cart
