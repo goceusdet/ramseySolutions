@@ -1,13 +1,13 @@
 package com.ramseySolutions.utils;
 
 import static io.restassured.RestAssured.*;
-
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.apache.http.HttpStatus;
-
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,15 +40,15 @@ public class API_Utils {
                 .when()
                 .get(Environment.BASE_URL + "/graphql").path("data.site.product");
     }
-    public static boolean fieldsAreNotEmpty(List<String> fieldList) {
-        for (String eachFieldName : fieldList) {
-            for (int i = 0; i < getAllSaleItems().size(); i++){
-                if(getAllSaleItems().get(i).containsKey(eachFieldName)){
-                    return true;
-                }else return false;
+    public static void assertFieldsAreNotEmpty(List<String> fieldList) {
+        List<Map<String, Object>> allSaleItemsListMap = getAllSaleItems();
+        for (int i = 0; i < allSaleItemsListMap.size(); i++){
+            System.out.println("getAllSaleItems().get(i) = " + allSaleItemsListMap.get(i));
+            for (String eachFieldName : fieldList){
+                System.out.println("getAllSaleItems().get(i).get(eachFieldName) = " + allSaleItemsListMap.get(i).get(eachFieldName));
+                MatcherAssert.assertThat(allSaleItemsListMap.get(i).get(eachFieldName), Matchers.notNullValue());
             }
         }
-        return false;
     }
     public static Response getAllSaleItemsWithReqResSpec(String endpoint) {
         return given().

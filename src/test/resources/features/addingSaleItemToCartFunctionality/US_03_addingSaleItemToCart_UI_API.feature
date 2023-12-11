@@ -11,7 +11,7 @@ Feature: As a user I am able to add a sale item to my cart - UI / API validation
     #When user navigates to "Sale" page
     And user sends GET request to "/graphql"
     Then product list names from API response should match with UI product list names
-      | New! Questions for Humans: Christmas                       |
+      | Questions For Humans Couples Second Edition                |
       | Know Yourself Money Assessment For Individuals"            |
       | New! Questions for Humans: Thanksgiving                    |
       | New! Questions For Humans Couples Second Edition           |
@@ -45,10 +45,10 @@ Feature: As a user I am able to add a sale item to my cart - UI / API validation
     And user deletes "<itemName>" item from cart
 
     Examples:
-      | itemName                             |
-      | New! Questions for Humans: Christmas |
-      | Baby Steps Millionaires              |
-      | From Paycheck to Purpose             |
+      | itemName                                |
+      | Questions for Humans: Parents and Teens |
+      | Baby Steps Millionaires                 |
+      | Own Your Past, Change Your Future       |
 
   @TC_09
   Scenario Outline: Verify user can delete a Sale item from cart UI / API
@@ -64,7 +64,7 @@ Feature: As a user I am able to add a sale item to my cart - UI / API validation
     And response field "message" for deleted item should match "Item not found"
 
     Examples:
-      | itemName                             | product_id |
-      | New! Questions for Humans: Christmas | 788        |
-      | Baby Steps Millionaires              | 795        |
-      | From Paycheck to Purpose             | 806        |
+      | itemName                                | product_id |
+      | Questions for Humans: Parents and Teens | 788        |
+      | Baby Steps Millionaires                 | 795        |
+      | Own Your Past, Change Your Future       | 797        |

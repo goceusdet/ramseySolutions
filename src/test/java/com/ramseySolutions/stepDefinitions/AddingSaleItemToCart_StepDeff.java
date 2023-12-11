@@ -12,6 +12,7 @@ import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
 
@@ -35,7 +36,7 @@ public class AddingSaleItemToCart_StepDeff {
     public void user_is_on_the_page(String page) {
         expectedPageTitle = homePage.getPageTitleFromSheet(page);
         actualPageTitle = Driver.getDriver().getTitle();
-        if(actualPageTitle.startsWith(expectedPageTitle)) Assertions.assertEquals(actualPageTitle, expectedPageTitle);
+        if(actualPageTitle.startsWith(expectedPageTitle)) Assert.assertEquals(expectedPageTitle, actualPageTitle);
     }
 
     @When("user navigates to {string} page")
@@ -51,7 +52,7 @@ public class AddingSaleItemToCart_StepDeff {
 
     @When("user clicks on {string} item")
     public void user_clicks_on_item(String itemName) {
-        salePage.getSaleItem(itemName).click();
+        salePage.getItem(itemName).click();
     }
 
     @When("user clicks Add to Cart button")
@@ -66,13 +67,13 @@ public class AddingSaleItemToCart_StepDeff {
 
     @Then("item name {string} should be displayed")
     public void item_name_should_be_displayed(String itemName) {
-        Assertions.assertTrue(cartPage.getItemInCart(itemName).isDisplayed());
+        Assert.assertTrue(cartPage.getItemInCart(itemName).isDisplayed());
     }
 
     @And("quantity value for {string} should be {int}")
     public void quantity_should_be(String itemName, Integer expectedValue) {
-        int actualQuantity = cartPage.getQuantityOfItemInCart(itemName);
-        Assertions.assertEquals(expectedValue, actualQuantity);
+        Integer actualQuantity = cartPage.getQuantityOfItemInCart(itemName);
+        Assert.assertEquals(expectedValue, actualQuantity);
     }
 
     @And("user deletes {string} from cart")
@@ -94,7 +95,7 @@ public class AddingSaleItemToCart_StepDeff {
     public void item_shouldn_t_be_present_in_cart(String itemName) {
         System.out.println("Element presence in cart status = " + cartPage.getItemFromList(itemName));
         System.out.println("itemName = " + itemName);
-        Assertions.assertNotEquals(cartPage.getItemFromList(itemName), itemName);
+        Assert.assertNotEquals(itemName, cartPage.getItemFromList(itemName));
     }
 
     @When("user sends GET request to {string}")
@@ -125,7 +126,7 @@ public class AddingSaleItemToCart_StepDeff {
         expectedItemName = response.path("product." + paramKey);
         System.out.println("actualItemName = " + actualItemName);
         System.out.println("expectedItemName = " + expectedItemName);
-        Assertions.assertEquals(expectedItemName, actualItemName);
+        Assert.assertEquals(expectedItemName, actualItemName);
     }
 
     @Then("user deletes {string} item from cart")
@@ -140,18 +141,18 @@ public class AddingSaleItemToCart_StepDeff {
 
     @Then("item {string} shouldn't be present in UI cart")
     public void item_shouldn_t_be_present_in_ui_cart(String itemName) {
-        Assertions.assertNotEquals(cartPage.getItemFromList(itemName), itemName);
+        Assert.assertNotEquals(itemName, cartPage.getItemFromList(itemName));
     }
 
     @And("response field {string} for deleted item should match {string}")
     public void response_Field_For_Deleted_Item_Should_Match(String responseKey, String responseValue) {
         actualResponseMessage = response.path(responseKey);
-        Assertions.assertEquals(responseValue, actualResponseMessage);
+        Assert.assertEquals(responseValue, actualResponseMessage);
     }
 
     @And("response status code should be {int}")
     public void response_Status_Code_Should_Be(int expectedStatusCode) {
         int actualStatusCode = response.statusCode();
-        Assertions.assertEquals(expectedStatusCode, actualStatusCode);
+        Assert.assertEquals(expectedStatusCode, actualStatusCode);
     }
 }

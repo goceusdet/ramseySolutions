@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 
 import java.util.List;
@@ -37,13 +38,13 @@ public class AddingSaleItemToCart_API_StepDeff {
 
     @Then("fields are not empty")
     public void fields_are_not_empty(List<String> listOfFields) {
-        Assertions.assertTrue(API_Utils.fieldsAreNotEmpty(listOfFields));
+        API_Utils.assertFieldsAreNotEmpty(listOfFields);
     }
 
     @Then("number of Sale items is {int}")
     public void number_of_Sale_items_is(int expectedListSize) {
         int actualListSize = API_Utils.getAllSaleItems().size();
-        Assertions.assertEquals(expectedListSize, actualListSize);
+        Assert.assertEquals(expectedListSize, actualListSize);
     }
 
     @Given("I send POST request to endpoint {string} for {string} item and {string} id")
@@ -55,13 +56,13 @@ public class AddingSaleItemToCart_API_StepDeff {
     @Then("field {string} is {string}")
     public void specified_field_is(String key, String expectedValue) {
         actualMessage = response.path("data." + key);
-        Assertions.assertEquals(expectedValue, actualMessage);
+        Assert.assertEquals(expectedValue, actualMessage);
     }
 
     @Then("response field {string} should match {string}")
     public void response_field_should_match(String key, String expectedValue) {
         actualProductID = response.path("data.cart_item." + key);
-        Assertions.assertEquals(Integer.valueOf(expectedValue), actualProductID);
+        Assert.assertEquals(Integer.valueOf(expectedValue), actualProductID);
     }
 
     @Then("I delete the item {string} from cart")
@@ -73,7 +74,7 @@ public class AddingSaleItemToCart_API_StepDeff {
     @Then("status code should be {int}")
     public void status_code_should_be(Integer expectedStatusCode) {
         int actualStatusCode = response.statusCode();
-        Assertions.assertEquals(expectedStatusCode, actualStatusCode);
+        Assert.assertEquals((int)expectedStatusCode, actualStatusCode);
     }
 
     @When("I search for {string} item from API {string} endpoint")
@@ -84,6 +85,6 @@ public class AddingSaleItemToCart_API_StepDeff {
     @And("GET response field {string} should match {string}")
     public void get_Response_Field_Should_Match(String key, String expectedValue) {
         actualMessage = response.path(key);
-        Assertions.assertEquals(expectedValue, actualMessage);
+        Assert.assertEquals(expectedValue, actualMessage);
     }
 }

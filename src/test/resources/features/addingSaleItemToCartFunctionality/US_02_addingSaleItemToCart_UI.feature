@@ -13,7 +13,8 @@ Feature: As a user I am able to add a sale item to my cart - UI
     #When user navigates to "sale" page
     Then user is on the "sale" page
     And user should be able to see the Sale item list
-      | New! Questions for Humans: Christmas                       |
+      | Questions For Humans Couples Second Edition                |
+      | Questions for Humans: Parents and Teens                    |
       | New! Questions for Humans: Thanksgiving                    |
       | Know Yourself Money Assessment For Individuals             |
       | New! Questions For Humans Couples Second Edition           |
@@ -46,10 +47,10 @@ Feature: As a user I am able to add a sale item to my cart - UI
     And user deletes "<itemName>" from cart
 
     Examples:
-      | itemName                             |
-      | New! Questions for Humans: Christmas |
-      | Baby Steps Millionaires              |
-      | From Paycheck to Purpose             |
+      | itemName                                    |
+      | Questions For Humans Couples Second Edition |
+      | Baby Steps Millionaires                     |
+      | From Paycheck to Purpose                    |
 
 
   @TC_06
@@ -62,7 +63,7 @@ Feature: As a user I am able to add a sale item to my cart - UI
     Then item "<itemName>" shouldn't be present in cart
 
     Examples:
-      | itemName                             |
-      | New! Questions for Humans: Christmas |
-      | Baby Steps Millionaires              |
-      | From Paycheck to Purpose             |
+      | itemName                                    |
+      | Questions For Humans Couples Second Edition |
+      | Baby Steps Millionaires                     |
+      | From Paycheck to Purpose                    |

@@ -22,7 +22,7 @@ Feature: As a user I am able to add a sale item to my cart - API
 
     Examples:
       | itemName                                      | product_id |
-      | New! Questions for Humans: Christmas          | 788        |
+      | Questions for Humans: Parents and Teens       | 788        |
       | Baby Steps Millionaires                       | 795        |
       | Questions for Humans: Middle School Classroom | 806        |
 
@@ -38,6 +38,6 @@ Feature: As a user I am able to add a sale item to my cart - API
 
     Examples:
       | itemName                                      | product_id |
-      | New! Questions for Humans: Christmas          | 788        |
+      | New! Questions for Humans: Thanksgiving       | 788        |
       | Baby Steps Millionaires                       | 795        |
       | Questions for Humans: Middle School Classroom | 806        |

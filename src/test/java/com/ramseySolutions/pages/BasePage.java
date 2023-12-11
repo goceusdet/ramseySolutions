@@ -66,13 +66,6 @@ public abstract class BasePage {
     }
 
     /**
-     * Method clicks on cart icon
-     */
-    public void clickOnCartIcon(){
-        cartIcon.click();
-    }
-
-    /**
      * Returns View Cart button as WebElement.
      * @return
      */

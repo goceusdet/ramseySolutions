@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -22,7 +21,6 @@ public class CartPage extends BasePage {
      * @return
      */
     public WebElement getItemInCart(String itemName) {
-        //BrowserUtils.waitForPageToLoad(5);
         return Driver.getDriver().findElement(By.xpath("//td[@class='rs-CartItem-detail rs-CartItem-title']//h2[contains(normalize-space(), '" + itemName + "')]"));
     }
 
