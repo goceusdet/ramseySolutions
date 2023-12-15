@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
                 "html:target/cucumber-reports.html",
                 "rerun:target/rerun.txt",
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber",
-                "json:target/cucumber.json",
+                "json:target/cucumber.json"
 //              "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" -- plugin to run allure reports
         },
         features = "src/test/resources/features", // connects TestRunner with feature files.
